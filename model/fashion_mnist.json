@@ -1,0 +1,65 @@
+[
+  {
+    "name": "flatten_1_input",
+    "type": "InputLayer",
+    "config": {
+      "activation": ""
+    },
+    "weights": [
+      "flatten_1_input_w",
+      "flatten_1_input_b"
+    ]
+  },
+  {
+    "name": "flatten_1",
+    "type": "Flatten",
+    "config": {
+      "activation": ""
+    },
+    "weights": []
+  },
+  {
+    "name": "dense_1",
+    "type": "Dense",
+    "config": {
+      "activation": "relu"
+    },
+    "weights": [
+      "dense_1_w",
+      "dense_1_b"
+    ]
+  },
+  {
+    "name": "dense_2",
+    "type": "Dense",
+    "config": {
+      "activation": "relu"
+    },
+    "weights": [
+      "dense_2_w",
+      "dense_2_b"
+    ]
+  },
+  {
+    "name": "dense_3",
+    "type": "Dense",
+    "config": {
+      "activation": "relu"
+    },
+    "weights": [
+      "dense_3_w",
+      "dense_3_b"
+    ]
+  },
+  {
+    "name": "dense_4",
+    "type": "Dense",
+    "config": {
+      "activation": "softmax"
+    },
+    "weights": [
+      "dense_4_w",
+      "dense_4_b"
+    ]
+  }
+]

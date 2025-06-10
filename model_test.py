@@ -2,6 +2,9 @@ import os, json
 import numpy as np
 from nn_predict import nn_inference, softmax, relu
 from utils import mnist_reader
+import os
+print("Current working directory:", os.getcwd())
+print("data/fashion folder contents:", os.listdir('data/fashion'))
 
 YOUR_MODEL_PATH = 'model/fashion_mnist' # Default format is h5
 #TF_MODEL_PATH = f'{YOUR_MODEL_PATH}.h5'
@@ -114,3 +117,5 @@ def test_relu():
     y = sum(relu(x))
 
     assert y == 3
+if __name__ == "__main__":
+    test_inference()
