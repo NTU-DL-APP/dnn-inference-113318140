@@ -7,16 +7,21 @@ def relu(x):
 
 def softmax(x):
     x = np.asarray(x, dtype=np.float64)
-    if x.ndim == 1:
-        x = x.reshape(1, -1)
     if x.size == 0:
-        return x
+        return np.array([], dtype=np.float64)
+    input_ndim = x.ndim
+    if input_ndim == 1:
+        x = x.reshape(1, -1)
+    elif input_ndim == 0:
+        return np.array([1.0], dtype=np.float64)
+    x = np.clip(x, -1e308, 1e308)
     x_max = np.max(x, axis=-1, keepdims=True)
     e_x = np.exp(x - x_max)
     sum_e_x = np.sum(e_x, axis=-1, keepdims=True)
     sum_e_x = np.where(sum_e_x == 0, 1.0, sum_e_x)
     result = e_x / sum_e_x
-    if result.shape[0] == 1:
+    result = result / (np.sum(result, axis=-1, keepdims=True) + 1e-10)
+    if input_ndim == 1:
         result = result.flatten()
     return result
 
